@@ -52,11 +52,83 @@ header h1 {
   color: #666;
 }
 
-section {
-  width: 620px;
+.wrapper {
+  width: 1020px;
 }
 
-@media print, screen and (max-width: 960px) {
+section {
+  width: 700px;
+}
+
+.code-block {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: #888;
+  background: rgba(255, 255, 255, 0.9);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  line-height: 0;
+  opacity: 0.72;
+}
+
+.copy-btn svg {
+  display: block;
+}
+
+.copy-btn:hover,
+.copy-btn:focus-visible {
+  color: #333;
+  background: #fff;
+  opacity: 1;
+}
+
+.copy-btn:focus {
+  outline: none;
+}
+
+.copy-btn:focus-visible {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #267cb9;
+}
+
+.copy-btn.copied {
+  color: #2d7a32;
+  opacity: 1;
+}
+
+@media print {
+  .copy-btn {
+    display: none;
+  }
+}
+
+@media print, screen and (max-width: 1120px) {
+  div.wrapper {
+    width: auto;
+    margin: 0;
+  }
+
+  header,
+  section {
+    float: none;
+    position: static;
+    width: auto;
+  }
+
   header {
     padding-right: 0;
   }
