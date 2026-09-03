@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "zh-CN" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="{{ "/" | relative_url }}">目录</a></h1>
+        <nav class="site-toc">
+          <p class="toc-group">MikroTik</p>
+          <ul>
+            {% assign notes = site.pages | where_exp: "p", "p.path contains 'mikrotik/'" | sort: "nav_order" %}
+            {% for p in notes %}
+              <li{% if p.url == page.url %} class="active"{% endif %}>
+                <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <nav class="page-toc" id="page-toc" hidden>
+          <p class="toc-group">本页</p>
+          <ul id="page-toc-list"></ul>
+        </nav>
+      </header>
+      <section>
+        {{ content }}
+      </section>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+      (function () {
+        var list = document.getElementById("page-toc-list");
+        var box = document.getElementById("page-toc");
+        if (!list || !box) return;
+        var headings = document.querySelectorAll("section h2, section h3");
+        if (!headings.length) return;
+        headings.forEach(function (h) {
+          if (!h.id) {
+            h.id = h.textContent.trim().toLowerCase().replace(/\s+/g, "-");
+          }
+          var li = document.createElement("li");
+          li.className = h.tagName.toLowerCase();
+          var a = document.createElement("a");
+          a.href = "#" + h.id;
+          a.textContent = h.textContent;
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+        box.hidden = false;
+      })();
+    </script>
+  </body>
+</html>

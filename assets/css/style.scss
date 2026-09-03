@@ -3,15 +3,66 @@
 
 @import "{{ site.theme }}";
 
-header,
 footer {
   display: none !important;
 }
 
+header h1 {
+  font-size: 22px;
+}
+
+.toc-group {
+  margin: 1.4em 0 0.4em;
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.04em;
+}
+
+.site-toc ul,
+.page-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-toc li,
+.page-toc li {
+  margin: 0;
+}
+
+.site-toc a,
+.page-toc a {
+  display: block;
+  padding: 5px 0;
+  color: #267cb9;
+  font-weight: 400;
+}
+
+.site-toc li.active a {
+  color: #222;
+  font-weight: 700;
+}
+
+.page-toc li.h3 {
+  padding-left: 12px;
+  font-size: 13px;
+}
+
+.page-toc a {
+  color: #666;
+}
+
 section {
-  float: none !important;
-  width: auto !important;
-  max-width: 900px;
-  margin: 40px auto !important;
-  padding: 0 24px;
+  width: 620px;
+}
+
+@media print, screen and (max-width: 960px) {
+  header {
+    padding-right: 0;
+  }
+
+  .site-toc ul,
+  .page-toc ul {
+    margin-bottom: 1em;
+  }
 }
