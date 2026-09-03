@@ -1,14 +1,3 @@
-# farss.github.io
-
-本地预览：
-
-```sh
-bundle install
-bundle exec jekyll serve
-```
-
-浏览器打开 http://127.0.0.1:4000/
-
 ## MikroTik
 
 - [RouterOS 旁路由实现](/mikrotik/routeros-bypass/)
