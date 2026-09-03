@@ -4,7 +4,20 @@
 @import "{{ site.theme }}";
 
 footer {
-  display: none !important;
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+footer a {
+  color: #888;
+  font-weight: 400;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #267cb9;
+  font-weight: 400;
 }
 
 header h1 {
@@ -58,24 +71,6 @@ header h1 {
 
 section {
   width: 700px;
-}
-
-.site-source {
-  margin-top: 3em;
-  padding-top: 1.2em;
-  border-top: 1px solid #e5e5e5;
-  font-size: 13px;
-}
-
-.site-source a {
-  color: #888;
-  font-weight: 400;
-}
-
-.site-source a:hover,
-.site-source a:focus {
-  color: #267cb9;
-  font-weight: 400;
 }
 
 .code-block {
